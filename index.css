@@ -1,0 +1,58 @@
+.map-link {
+    font-size: 25px;
+    margin: 10px 0;
+    margin-bottom: 0;
+}
+
+.indication {
+    margin: 5px 0;
+}
+
+.titleAI {
+    font-size: 15px;
+    text-align: center;
+    margin: 0 10px;
+    margin-top: 10px;
+}
+
+.caption-high {
+    text-decoration: underline; 
+    font-weight: bolder;
+}
+
+.tabWidth {
+    width: calc(100% / 3)!important;
+}
+
+#captainL {
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+#trend {
+    display: block!important;
+}
+
+main {
+    padding-bottom: 0!important;
+}
+
+.checkboxes {
+    width: 205px;
+    margin: 0 auto;
+    margin-top: 7px;
+    margin-bottom: -3px;
+}
+
+[type="checkbox"] + span:not(.lever) {
+    padding-left: 22px;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    #captainL {
+        font-size: 20px;
+        border-bottom: 1px solid black;
+        margin-bottom: 10px;
+    }
+}

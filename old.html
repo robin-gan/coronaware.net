@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coronaware | Old Version</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/brain.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+        <script src="js/cases.js?version=6" defer></script>
+        <script src="js/labels.js?version=2" defer></script>
+        <script src="js/main.js?version=8" defer></script>
+        <script src="js/old.js?version=8" defer></script>
+        <link rel= "stylesheet" type= "text/css" href= "style.css?version=6">
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/logo-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./img/logo-16x16.png">
+        <meta property="og:image" content="http://coronaware.net/img/logo-500x500.png" />
+        <meta property="og:image:secure_url" content="http://coronaware.net/img/logo-500x500.png" />
+        <meta name="description" content="Old Version that keeps record from 3/9/2020 to 3/26/2020"/>
+        <!--icon designed by Raihanil Jannah https://www.iconfinder.com/Raihanil_jannah-->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161809631-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-161809631-1');
+        </script>
+
+    </head>
+    <body class="grey lighten-3">
+                
+        <nav class = "grey darken-4" style="padding-left: 32px;"><a href="/" class="brand-logo ">coronaware<span style="margin: 0 5px; color: #039be5;">+</span>AI</a>
+            <a href="#" data-target="sidenav-1" class="left sidenav-trigger hide-on-medium-and-up"><i class="material-icons">menu</i></a>
+        </nav>
+        <ul id="sidenav-1" class="sidenav sidenav-fixed blue-grey darken-4" >
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home</a></li>
+            <li><a class="waves-effect" href="map"><i class="material-icons">map</i>Map</a></li>
+            <li><a class="waves-effect" href="what-to-know"><i class="material-icons">warning</i>What to Know</a></li>
+            <li><a class="waves-effect" href="news"><i class="material-icons">announcement</i>News</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect" href="old"><i class="material-icons">archive</i>Old Version</a></li>
+            <li><a class="waves-effect" href="contact"><i class="material-icons">email</i>Contact</a></li>
+            <li><a class="waves-effect" href="about"><i class="material-icons">info</i>About</a></li>
+        </ul>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <main>
+
+            <div class="row flex">
+                <div class="col s12" id="captainSection">
+                    <h3 id="captainL">95 total cases and 0 deaths as of 3/22/20 (
+                        <a href="https://occovid19.ochealthinfo.com/coronavirus-in-oc">Orange County</a>). &nbsp;</h3>
+                        <p><span style="color: red;">*</span> "+12" : mean that 12 more cases compared to yesterday</p>
+                        <span class="badge" style="float: left; background-color: rgb(218, 116, 78);color: black;">Scroll down for charts &#8595;&#8595;</span>
+                    <!--<h3><a href = "map">See Map for affected areas.</a></h3>-->
+                </div>
+                <div class="col s12">
+                    <!--<h3>Covid-19 Cases</h3>-->
+                    <label>Change Date</label>
+                    <select class="browser-default" style="max-width: 150px; height: 30px;" id="changeDate" 
+                    onchange="updateTable(this.value)">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <table class="responsive-table">
+                        <thead>
+                            <tr style="border-bottom: 3px solid;">
+                                <th></th>
+                                <th>Total Cases</th>
+                                <th class="blue-grey lighten-2">Male</th>
+                                <th class="blue-grey lighten-2">Female</th>
+                                <th class="deep-orange lighten-3">&lt; 18</th>
+                                <th class="deep-orange lighten-3">18-49</th>
+                                <th class="deep-orange lighten-3">50-64</th>
+                                <th class="deep-orange lighten-3">&ge; 65</th>
+                            </tr>
+                        </thead>
+                        <tbody id="currentT">
+                            <tr>
+                                <td>Loading</td>
+                                <td>?</td>
+                                <td>?</td>
+                                <td>?</td>
+                                <td>?</td>
+                                <td>?</td>
+                                <td>?</td>
+                                <td>?</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col s6 resize"> 
+                    <div class="card">
+                        <div class="row" style="margin-bottom: 0;">
+                            <div class="col s12 tabCoustomize">
+                                <ul class="tabs">
+                                    <li class="tab col s3 tabWidth"><a class="active" href="#trend">Trend</a></li>
+                                    <li class="tab col s3 tabWidth"><a href="#ai-prediction">AI Prediction</a></li>
+                                </ul>
+                            </div>
+                            <div id="trend" class="col s12">
+                                <!--<div class="input-field col s12">-->
+                                <label>Sort By</label>
+                                <select class="browser-default" onchange='updateLineChart()' id="sortLine">
+                                    <option value="total_cases" selected>Total</option>
+                                    <option value="travel_related">Travel Related</option>
+                                    <option value="person_to_person_spread">Person-to-person Spread</option>
+                                    <option value="community_acquired">Community Acquired</option>
+                                    <option value="under_investigation">Under Investigation</option>
+                                </select>
+                                <!--</div>-->
+                                <!--<div class="input-field col s12">-->
+                                <label>Filter By</label>
+                                <select class="browser-default" onchange='updateLineChart()' id="filterLine">
+                                    <option value="total" selected>No Filter</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="18"> &lt; 18 </option>
+                                    <option value="18-49">18 - 49</option>
+                                    <option value="50-64">50 - 64</option>
+                                    <option value="65">&ge; 65</option>
+                                </select>
+                                <!--</div>-->
+                                <div class="chartContainer"><canvas id="myChart"></canvas></div>
+                            </div>
+                            <div id="ai-prediction" class="col s12">
+                                <p style="margin-left: 10px;">The AI predicts total number of cases for the current week, update every Monday. We use 
+                                    <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network">RNN</a> model. 
+                                </p>
+                                <div class="chartContainer"><canvas id="myChart3"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s6 resize"> 
+                    <div class="card">
+                        <!--<div class="input-field col s12">-->
+                            <label>Sort By</label>
+                            <select class="browser-default" onchange='updatePieChart()' id="pieL">
+                                <option value="spread_vectors" selected>Spread Vectors</option>
+                                <option value="gender">Gender</option>
+                                <option value="age">Age</option>
+                            </select>
+                        <!--</div>-->
+                        <div class="chartContainer"><canvas id="myChart2"><p>fd</p></canvas></div>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        <footer class="page-footer grey darken-4">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">Coronaware OC</h5>
+                  <p class="grey-text text-lighten-4">All information on this website updated daily, provided by OC Health Info.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://www.ochealthinfo.com/phs/about/epidasmt/epi/dip/prevention/novel_coronavirus">Official OC Health Info</a></li>
+                    <li><a class="grey-text text-lighten-3" href="">Things to Know About CoronaVirus</a></li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">© 2020 Coronaware</div>
+                    <div class="col l4 offset-l2 s12">
+                        <p class="grey-text text-lighten-4 left" style="margin:0; margin-left: 3px;">Created by Alex Lynd / Robin Gan</p>
+                        <br />
+                        <p class="grey-text text-lighten-4 left" style="margin:0; margin-left: 3px;">Maintained by Luke Soliman</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+    
+</html>

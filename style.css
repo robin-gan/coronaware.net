@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+body {
+    font-family: Karla;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+p {
+    font-size: 14px;
+}
+
+table {
+    font-size: 14px;
+}
+
+main {
+    width: 100%;
+    padding: 114px 50px 50px 350px;
+    flex: 1 0 auto;
+}
+main#map {
+    padding: 104px 40px 40px 340px; 
+    height: 100vh;
+}
+footer {
+    padding-left: 300px;
+}
+
+.centered {
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.sidenav-trigger {
+    margin: 0!important;
+    margin-left: -15px!important;;
+}
+
+ul#sidenav-1 *{
+    color: white;
+}
+
+#mapid { 
+    height: 100%; 
+    z-index: 0; 
+    background-color: black;
+    margin: 0;
+}
+
+nav {
+    position: fixed;
+    z-index: 10;
+    top: 0; left: 0;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    padding: 10px;
+
+  }
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .row .col {
+      padding: 10px;
+  }
+  .col {
+    box-sizing: border-box;
+  }
+ th {
+      border-radius: 0;
+  }
+
+#sidenav-1 {
+    padding-top: 10px;
+    top: 64px;
+}
+
+@media only screen and (max-width: 992px) {
+    main {
+        padding: 44px 50px;
+    }
+    main#map {
+        padding: 84px 40px 20px 40px;
+    }
+    tr {
+        border-bottom: 0 solid !important; 
+    }
+    #sidenav-1 {
+        top: 0;
+    }
+    footer {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    main {
+        padding: 44px 20px;
+    }
+}
+
+.chartContainer {
+    margin-top: 5px;
+}
+
+#captainSection {
+    padding-bottom: 0;
+}
+
+#captainL {
+    font-size: 35px;
+}
+
+#captainL a {
+    color: orange;
+}
+
+#captainL a:hover {
+    text-decoration: underline;
+}
+
+.tabCoustomize {
+    padding-bottom: 0!important;
+    padding-top: 0!important;
+}
+
+.tabCoustomize ul li {
+    padding-bottom: 0!important;
+}
+
+.tabWidth {
+    width:50%!important;
+}
+
+#trend {
+    padding-top: 0;
+}
+
+@media only screen and (min-width: 950px) {
+    main {
+        padding-top:50px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #captainL {
+        font-size: 23px;
+    }
+}
+
+/*** iPhone and iOS Form Input Zoom Fixes ***/
+input, select { font-size: 100%; }

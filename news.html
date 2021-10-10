@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coronaware | News</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="lib/jquery.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/logo-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./img/logo-16x16.png">
+        <meta property="og:image" content="http://coronaware.net/img/logo-500x500.png" />
+        <meta property="og:image:secure_url" content="http://coronaware.net/img/logo-500x500.png" />
+        <meta name="description" content="Real time website for OC COVID-19 cases" />
+
+   <link rel= "stylesheet" type= "text/css" href= "style.css">
+
+        <meta charset="UTF-8">
+        
+    </head>
+    <body class = "grey lighten-3">
+                
+        <nav class = "grey darken-4" style="padding-left: 32px;"><a href="/" class="brand-logo ">coronaware<span style="margin: 0 5px; color: #039be5;">+</span>AI</a> 
+            <a href="#" data-target="sidenav-1" class="left sidenav-trigger hide-on-medium-and-up"><i class="material-icons">menu</i></a>
+        </nav>
+        <ul id="sidenav-1" class="sidenav sidenav-fixed blue-grey darken-4" >
+            <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home</a></li>
+            <li><a class="waves-effect" href="map"><i class="material-icons">map</i>Map</a></li>
+            <li><a class="waves-effect" href="what-to-know"><i class="material-icons">warning</i>What to Know</a></li>
+            <li><a class="waves-effect" href="news"><i class="material-icons">announcement</i>News</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="waves-effect" href="old"><i class="material-icons">archive</i>Old Version</a></li>
+            <li><a class="waves-effect" href="contact"><i class="material-icons">email</i>Contact</a></li>
+            <li><a class="waves-effect" href="about"><i class="material-icons">info</i>About</a></li>
+        </ul>
+        
+        <script>
+            $(document).ready(function(){
+                $('select').formSelect();
+                $('.sidenav').sidenav(); 
+                window.onresize = function(event) { 
+                    $('.sidenav').sidenav(); 
+                    width = document.documentElement.clientWidth;
+                    if (width < 1300){
+                        $('.resize').removeClass('s6');
+                        $('.resize').addClass('s12');
+                    }
+                    else {
+                        $('.resize').removeClass('s12');
+                        $('.resize').addClass('s6');
+                    }
+                }
+
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <main>
+            <div class="row flex">
+                <div class="col s12"><h3>News</h3></div>
+                <div class="col s12"> 
+                    <div class = "card">
+                        <ul class="collection">
+                            <li class = "collection-item">CDPH - State Officials Announce Latest COVID-19 Facts (3/20/20)</li>
+                            <li class = "collection-item">CAL OES - Governor Gavin Newsom Issues Stay at Home Order (3/19/20)</li>
+                            <li class = "collection-item">County of Orange to Connect Seniors with Resources During COVID-19 Outbreak (3/19/20)</li>
+                            <li class = "collection-item">CDPH - State Health & Emergency Officials Announce Latest COVID-19 Facts (3/19/20)</li>
+                            <li class = "collection-item">County of Orange - Extended use of N95 Masks (3/18/20)</li>
+                            <li class = "collection-item">EOC - County Issues Amended Health Order and Guidance (3/18/2020)</li>
+                            <li class = "collection-item">Cal OES - California State Parks Temporarily Closes All Campgrounds in the State Park System (3/18/2020)</li>
+                            <li class = "collection-item">CDPH - State Health & Emergency Officials Announce Latest COVID-19 Facts (3/18/2020)</li>
+                            <li class = "collection-item">CAL OES - Governor Newsom Issues Executive Order to Protect Ongoing Safety Net Services for Most Vulnerable Californians During COVID-19 Outbreak (3/18/2020)</li>
+                            <li class = "collection-item">OC EOC - Public Health Order is NOT an Order to Shelter in Place (3/18/2020)</li>
+                            <li class = "collection-item">CAL OES - California Releases New COVID-19 Guidance for K-12 Schools (3/17/2020)</li>
+                            <li class = "collection-item">County Health Officer Issues Order to Slow Spread of COVID-19 (3/17/2020)</li>
+                            <li class = "collection-item">CDPH - State Health & Emergency Officials Announce Latest COVID-19 Facts (3/17/2020)</li>
+                            <li class = "collection-item">CDPH - State Health & Emergency Officials Release Guidance to Prevent the Transmission of COVID-19 in Food and Beverage Venues (PDF) (3/16/2020)</li>
+                            <li class = "collection-item">Superior Court of CA, OC - Court Closure Due to Coronavirus (3/16/20)</li>
+                            <li class = "collection-item">Governor Newsom Issues Executive Order to Protect Renters and Homeowners During COVID-19 Pandemic (3/16/20)</li>
+                            <li class = "collection-item">OC Operational Area - EOC - List of County of Orange Public Services Suspended due to COVID-19 (3/16/20)</li>
+                            <li class = "collection-item">CDPH State Health & Emergency Officials Announce Latest COVID-19 Facts (3/16/20)</li>
+                            <li class = "collection-item">CAHAN All Facilities Letter Notification - AFL 20-22.1: Guidance for Limiting the Transmission of COVID-19 in Long-Term Care (3/13/20)</li>
+                            <li class = "collection-item">CDPH - State Health & Emergency Officials Release Guidance to Prevent the Transmission of COVID-19 in Gambling Venues, Theme Parks and Theaters (3/13/20)</li>
+                            <li class = "collection-item">OC Department of Education - County Superintendent Issues Statement Supporting School Closures (3/13/20)</li>
+                            <li class = "collection-item">Request to OC Jail visitors to Limit Non-Essential Visits Due to COVID-19 Concerns (3/13/20) </li>
+                        </ul>
+                    </div>
+                </div>
+
+                </div>
+        </main>
+        <footer class="page-footer grey darken-4">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">Coronaware OC</h5>
+                  <p class="grey-text text-lighten-4">All information on this website updated daily, provided by OC Health Info.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://www.ochealthinfo.com/phs/about/epidasmt/epi/dip/prevention/novel_coronavirus">Official OC Health Info</a></li>
+                    <li><a class="grey-text text-lighten-3" href="">Things to Know About CoronaVirus</a></li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">© 2020 Coronaware</div>
+                    <div class="col l4 offset-l2 s12">
+                        <p class="grey-text text-lighten-4 left" style="margin:0; margin-left: 3px;">Created by Alex Lynd / Robin Gan</p>
+                        <br />
+                        <p class="grey-text text-lighten-4 left" style="margin:0; margin-left: 3px;">Maintained by Luke Soliman</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+    
+</html>

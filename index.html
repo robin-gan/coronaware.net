@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Coronaware | Home for OC</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/brain.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <script src="js/cases.js?version=6" defer></script>
+    <script src="js/labels.js?version=3" defer></script>
+    <script src="js/main.js?version=8" defer></script>
+    <script src="js/ai.js?version=8" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css?version=1">
+    <link rel="stylesheet" type="text/css" href="index.css?version=1">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/logo-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/logo-16x16.png">
+    <meta property="og:image" content="http://coronaware.net/img/logo-500x500.png" />
+    <meta property="og:image:secure_url" content="http://coronaware.net/img/logo-500x500.png" />
+    <meta name="description" content="Real time website for OC COVID-19 cases" />
+    <!--icon designed by Raihanil Jannah https://www.iconfinder.com/Raihanil_jannah-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161809631-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-161809631-1');
+    </script>
+
+</head>
+
+<body class="grey lighten-3">
+
+    <nav class="grey darken-4" style="padding-left: 32px;">
+        <a href="/" class="brand-logo ">coronaware<span style="margin: 0 5px; color: #039be5;">+</span>AI</a>
+        <a href="#" data-target="sidenav-1" class="left sidenav-trigger hide-on-medium-and-up"><i
+                class="material-icons">menu</i></a>
+    </nav>
+    <ul id="sidenav-1" class="sidenav sidenav-fixed blue-grey darken-4">
+        <li><a class="waves-effect" href="/"><i class="material-icons">home</i>Home</a></li>
+        <li><a class="waves-effect" href="map"><i class="material-icons">map</i>Map</a></li>
+        <li><a class="waves-effect" href="what-to-know"><i class="material-icons">warning</i>What to Know</a></li>
+        <li><a class="waves-effect" href="news"><i class="material-icons">announcement</i>News</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="waves-effect" href="old"><i class="material-icons">archive</i>Old Version</a></li>
+        <li><a class="waves-effect" href="contact"><i class="material-icons">email</i>Contact</a></li>
+        <li><a class="waves-effect" href="about"><i class="material-icons">info</i>About</a></li>
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <main>
+
+        <div class="row flex">
+            <div class="col s12" id="captainSection">
+                <h3 id="captainL">This website now <span class="caption-high">only</span> has <span class="caption-high">AI predictions</span> 
+                    on total cases.
+                </h3>
+                <p style="margin: 0; margin-top: 5px;"><span style="color: red;">*</span> Click <a href="https://occovid19.ochealthinfo.com/coronavirus-in-oc">HERE</a>
+                    for <span class="caption-high">COVID-19 data</span> in Orange County.
+                </p>
+                <p style="margin-top: 0; margin-bottom: 0;"><span style="color: red;">*</span> Click <a href="old">HERE</a> to the <span class="caption-high">old version</span> of this website.</p>
+            </div>
+        
+            <div class="col s6 resize" style="margin-right: auto;">
+                <div class="card">
+                    <div class="row" style="margin-bottom: 0;">
+                        <h4 class="titleAI">Three different AI models for predictions</h4>
+                        <div class="col s12 tabCoustomize">
+                            <div id="trend" class="col s12">
+                                <div class="chartContainer"><canvas id="aiPrediction"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s6 resize" style="margin-right: auto;">
+                <div class="card">
+                    <div class="row" style="margin-bottom: 0;">
+                        <h4 class="titleAI">Analysis we did before this version</h4>
+                        <div class="col s12 tabCoustomize">
+                            <div class="col s12">
+                                <iframe
+                                    src="https://docs.google.com/presentation/d/e/2PACX-1vRi5f-IIXbbWojFzXj_RpaUyrmz1n9UmrCWogeAFdAidrryOZXqxE_11LjcZvCi6IRHQf99nTUYZEZa/embed?start=false&loop=false&delayms=3000"
+                                    frameborder="0" width="100%" height="400" allowfullscreen="true" mozallowfullscreen="true"
+                                    webkitallowfullscreen="true">
+                                </iframe>
+                            </div>
+                        </div>
+                        <h4 class="titleAI">Here is the <a href="https://github.com/robingan7/Analysis-on-predicting-COVID-19-cases/blob/master/final%20project.ipynb">code</a> of this analysis</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer grey darken-4">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Coronaware OC</h5>
+                    <p class="grey-text text-lighten-4">All information on this website updated daily, provided by OC
+                        Health Info.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3"
+                                href="https://www.ochealthinfo.com/phs/about/epidasmt/epi/dip/prevention/novel_coronavirus">Official
+                                OC Health Info</a></li>
+                        <li><a class="grey-text text-lighten-3" href="">Things to Know About CoronaVirus</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">© 2020 Coronaware</div>
+                    <div class="col l4 offset-l2 s12">
+                        <p class="grey-text text-lighten-4 left" style="margin:0; margin-left: 3px;">Created by Alex Lynd / Robin Gan</p>
+                        <br />
+                        <p class="grey-text text-lighten-4 left" style="margin:0; margin-left: 3px;">Maintained by Luke Soliman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
