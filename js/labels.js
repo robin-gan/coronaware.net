@@ -45,11 +45,13 @@ for(let i = 0; i < 7; i++) {
 }
 
 dateLabelPrediction = dateLabelPrediction.sort(dateSort);
-var thisWeekDates = []
 
-for(i = 7; i>0; i--) {
+// the site has stopp on the week of 2020/11/7
+var thisWeekDates = ['11/1', '11/2', '11/3', '11/4', '11/5', '11/6', '11/7']
+
+/*for(i = 7; i>0; i--) {
     thisWeekDates.push(dateLabelPrediction[dateLabelPrediction.length - i]);
-}
+}*/
 //console.log(thisWeekDates);
 //dateLabelPrediction.shift();
 

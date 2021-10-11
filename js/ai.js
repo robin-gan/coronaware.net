@@ -8,13 +8,13 @@ var trendLineChart = new Chart(ctx, {
         labels: thisWeekDates,
         datasets: [
             {
-                label: 'Actual cases in OC',
+                label: 'Real Cases',
                 backgroundColor: 'transparent',
                 borderColor: '#ee6e73',
                 pointBackgroundColor: '#ee6e73',
                 pointRadius: 3,
                 pointHoverRadius: 4,
-                data: [52945, 53190, 53382, 53471, 53560, 53707, 53811],
+                data: [52945, 53190, 53382],
                 order: 0
             },
             {
@@ -99,11 +99,10 @@ adjustGraph();
 
 /* use once every Sunday to print JSON prediction result */
 function printAIResult() {
-    /*
     var net1 = new brain.recurrent.RNNTimeStep();
     var net2 = new brain.recurrent.LSTMTimeStep();
     var net3 = new brain.recurrent.GRUTimeStep();
-    */
+    
     const net = new brain.recurrent.GRUTimeStep();
     let training = [52945, 53190, 53382, 53471, 53560, 53707, 53811];
 

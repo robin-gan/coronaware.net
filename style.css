@@ -112,6 +112,10 @@ nav {
     main {
         padding: 44px 20px;
     }
+
+    .row .col.s6 {
+        width: 100%;
+    }
 }
 
 .chartContainer {
