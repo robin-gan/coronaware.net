@@ -18,7 +18,7 @@ var trendLineChart = new Chart(ctx, {
                 order: 0
             },
             {
-                label: 'CNN',
+                label: 'RNN',
                 backgroundColor: 'transparent',
                 borderColor: '#5857E6',
                 pointBackgroundColor: '#5857E6',
@@ -28,7 +28,7 @@ var trendLineChart = new Chart(ctx, {
                 order: 0
             },
             {
-                label: 'LMTQ',
+                label: 'LSTM',
                 backgroundColor: 'transparent',
                 borderColor: '#7DD1AB',
                 pointBackgroundColor: '#7DD1AB',
